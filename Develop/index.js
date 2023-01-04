@@ -4,8 +4,7 @@ const fs = require ("fs");
 const inquirer = require('inquirer');
  
 // Create an array of questions for user input
-inquirer
-.prompt([
+const questions= [
     {
         type: 'input',
         message: 'What is the name of the project?',
@@ -65,21 +64,17 @@ inquirer
         message: 'How can I contact you if I have nay questions?',
         name: 'contact',
     },
-])
+]
 
 
-// TODO: Create a function to write README file
+// Create a function to write README file
 inquirer.prompt(questions).then(function(response){
     console.log(response);
     
-    const content =fileGenerator(resposne);
+    const content = fileGenerator(resposne);
+    console.log(resposne);
 
-    fs.writeFile("./ReadMe.md", process.argv[2], (err) =>
-    err ? console.error(err) : console.log('Success!'))
+    fs.writeFile("./ReadMe.md", content, function(err){
+    err ? console.error(err) : console.log('Success!')
+    });
 })
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
