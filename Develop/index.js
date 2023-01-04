@@ -3,6 +3,15 @@ const fileGenerator = require("./fileGenerator");
 const fs = require ("fs");
 const inquirer = require('inquirer');
  
+
+(async () => {
+    const { fileTypeFromFile } = await (eval('import("file-type")') as Promise<typeof import('file-type')>);
+  
+    const type = await fileTypeFromFile('fixture.skp');
+    console.log(type);
+  })();
+
+  
 // Create an array of questions for user input
 const questions= [
     {
@@ -71,8 +80,8 @@ const questions= [
 inquirer.prompt(questions).then(function(response){
     console.log(response);
     
-    const content = fileGenerator(resposne);
-    console.log(resposne);
+    const content = fileGenerator(response);
+    console.log(response);
 
     fs.writeFile("./ReadMe.md", content, function(err){
     err ? console.error(err) : console.log('Success!')
