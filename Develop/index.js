@@ -4,14 +4,7 @@ const fs = require ("fs");
 const inquirer = require('inquirer');
  
 
-(async () => {
-    const { fileTypeFromFile } = await (eval('import("file-type")') as Promise<typeof import('file-type')>);
-  
-    const type = await fileTypeFromFile('fixture.skp');
-    console.log(type);
-  })();
 
-  
 // Create an array of questions for user input
 const questions= [
     {
