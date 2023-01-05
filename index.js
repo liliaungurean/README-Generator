@@ -20,7 +20,7 @@ inquirer
       },
      {
         type: 'input', 
-        messgae: 'Are there any step required to instal this project?',
+        messagae: 'Are there any step required to instal this project?',
         name: 'instalation',
       },
      {
