@@ -1,7 +1,7 @@
 
     function fileGenerator(response){
     return `
-    <h1 alight='center'> ${response.title}</h1>
+    #${response.title}
 
     ## Table Of Contents
     - [Description](#description)
